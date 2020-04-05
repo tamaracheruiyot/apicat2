@@ -15,8 +15,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
-
+})->name('home');
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/fees', 'FeesController@index')->name('fees');
+Route::get('/students', 'StudentsController@index')->name('students');
+Route::post('/students', 'StudentsController@storeStudent')->name('createStudent');
+Route::post('/fees', 'FeesController@createFee')->name('createFee');
