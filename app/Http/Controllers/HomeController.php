@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Fee;
 
 class HomeController extends Controller
 {
@@ -24,5 +25,10 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+    public function records()
+    {
+        $records=Fee::has('students')->get();
+        return view('tcheruiyot.records')->with('records', $records);
     }
 }
